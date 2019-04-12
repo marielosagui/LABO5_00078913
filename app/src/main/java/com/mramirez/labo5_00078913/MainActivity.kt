@@ -1,8 +1,10 @@
 package com.mramirez.labo5_00078913
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity(), FragmentBasic.ToolBoxListener {
 
@@ -18,6 +20,9 @@ class MainActivity : AppCompatActivity(), FragmentBasic.ToolBoxListener {
         supportFragmentManager.beginTransaction()
             .add(R.id.activity_main,fragmentBasic)
             .commit()
+        if (resources.configuration.orientation== Configuration.ORIENTATION_LANDSCAPE) {
+            Toast.makeText(this, "Estoy en landscape", Toast.LENGTH_LONG).show()
+        }
     }
 
 }
